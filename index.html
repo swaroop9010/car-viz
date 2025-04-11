@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Car Performance Visualizations</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Car Performance Visualization</title>
+  <link rel="stylesheet" href="style.css" />
   <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
-  <h1>🚗 Car Performance Visualization Dashboard</h1>
 
-  <section id="lineChart" class="chart-section">
-    <h2>MPG Over Years by Origin</h2>
-  </section>
+  <header>
+    <h1>🚗 Car Performance Dashboard</h1>
+    <div class="button-bar">
+      <button onclick="showChart('lineChart')">MPG Over Time</button>
+      <button onclick="showChart('scatterPlot')">Engine vs MPG</button>
+      <button onclick="showChart('barChart')">Manufacturer MPG</button>
+    </div>
+  </header>
 
-  <section id="scatterPlot" class="chart-section">
-    <h2>Horsepower vs MPG</h2>
-  </section>
+  <main>
+    <section id="lineChart" class="chart-section visible"></section>
+    <section id="scatterPlot" class="chart-section hidden"></section>
+    <section id="barChart" class="chart-section hidden"></section>
+  </main>
 
-  <section id="barChart" class="chart-section">
-    <h2>Average MPG by Manufacturer</h2>
-  </section>
-
-  <!-- Your D3 scripts -->
   <script src="line-chart.js"></script>
   <script src="scatter-plot.js"></script>
   <script src="bar-chart.js"></script>
+
+  <script>
+    function showChart(chartId) {
+      document.querySelectorAll('.chart-section').forEach(section => {
+        section.classList.add('hidden');
+      });
+      document.getElementById(chartId).classList.remove('hidden');
+    }
+  </script>
 </body>
 </html>
