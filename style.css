@@ -1,36 +1,61 @@
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('your-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
   margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 20px;
-  background: #f9f9f9;
-  color: #333;
 }
 
 h1 {
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 40px;
+  margin: 0;
+  font-size: 2em;
+}
+
+.button-bar {
+  margin-top: 15px;
+}
+
+.button-bar button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  background: #3498db;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button-bar button:hover {
+  background: #2980b9;
+}
+
+main {
+  padding: 30px;
 }
 
 .chart-section {
-  background: white;
+  display: none;
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 16px;
   padding: 20px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: 20px auto;
   max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  color: #333;
 }
 
-svg {
-  background: url('background.jpg') no-repeat center center;
-  background-size: cover;
+.chart-section.visible {
+  display: block;
 }
 
-@media screen and (max-width: 768px) {
-  svg {
-    width: 100% !important;
-    height: auto !important;
-  }
+.hidden {
+  display: none;
 }
