@@ -52,4 +52,16 @@ d3.csv("a1-cars.csv").then(data => {
 
   svg.append("text").attr("x", width / 2).attr("y", -15)
     .attr("text-anchor", "middle").style("font-size", "16px").text("MPG Over Years by Origin");
+
+  svg.append("g")
+   .attr("transform", `translate(0,${height})`)
+   .call(d3.axisBottom(x))
+   .selectAll("path,line")
+   .attr("stroke", "black");
+
+svg.append("g")
+   .call(d3.axisLeft(y))
+   .selectAll("path,line")
+   .attr("stroke", "black");
+
 });
