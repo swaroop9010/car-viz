@@ -24,8 +24,8 @@ h1 {
 }
 
 svg {
-  display: block;
-  margin: 0 auto;
+  background: url('images/background.jpg') no-repeat center center;
+  background-size: cover;
 }
 
 @media screen and (max-width: 768px) {
