@@ -1,4 +1,3 @@
-
 d3.csv("a1-cars.csv").then(data => {
   data = data.filter(d => d.MPG && d.Horsepower);
   data.forEach(d => {
@@ -17,18 +16,26 @@ d3.csv("a1-cars.csv").then(data => {
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
-  const x = d3.scaleLinear().domain(d3.extent(data, d => d.Horsepower)).range([0, width]);
-  const y = d3.scaleLinear().domain(d3.extent(data, d => d.MPG)).range([height, 0]);
+  const x = d3.scaleLinear()
+              .domain(d3.extent(data, d => d.Horsepower))
+              .range([0, width]);
+              
+  const y = d3.scaleLinear()
+              .domain(d3.extent(data, d => d.MPG))
+              .range([height, 0]);
 
+  // X Axis
   svg.append("g")
      .attr("transform", `translate(0,${height})`)
      .attr("class", "axis")
      .call(d3.axisBottom(x));
 
+  // Y Axis
   svg.append("g")
      .attr("class", "axis")
      .call(d3.axisLeft(y));
 
+  // Data points
   svg.selectAll("circle")
     .data(data)
     .enter().append("circle")
@@ -38,4 +45,9 @@ d3.csv("a1-cars.csv").then(data => {
     .attr("fill", "steelblue")
     .append("title")
     .text(d => `${d.Car} (${d.MPG} MPG)`);
+
+  // Set axis color to black
+  svg.selectAll(".axis path, .axis line, .axis text")
+     .attr("stroke", "black")
+     .attr("fill", "black");
 });
