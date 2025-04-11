@@ -51,7 +51,10 @@ h1 {
   display: none;
 }
 
-svg {
-  display: block;
-  margin: auto;
+svg text,
+.axis path,
+.axis line {
+  stroke: black !important;
+  fill: black;
+  color: black;
 }
