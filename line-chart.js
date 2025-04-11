@@ -38,20 +38,26 @@ d3.csv("a1-cars.csv").then(data => {
     .y(d => y(d.MPG));
 
   // Plot lines and labels
-  nested.forEach(([origin, values]) => {
-    svg.append("path")
-      .datum(values)
-      .attr("fill", "none")
-      .attr("stroke", color(origin))
-      .attr("stroke-width", 2)
-      .attr("d", line);
+  nested.forEach(([origin, values], i) => {
+  svg.append("path")
+    .datum(values)
+    .attr("fill", "none")
+    .attr("stroke", color(origin))
+    .attr("stroke-width", 2)
+    .attr("d", line);
+});
 
-    svg.append("text")
-      .attr("x", width - 60)
-      .attr("y", y(values[values.length - 1].MPG))
-      .attr("fill", color(origin))
-      .text(origin);
-  });
+// Add legend-like labels on the right side
+nested.forEach(([origin], i) => {
+  svg.append("text")
+    .attr("x", width + 10)  // just outside the chart area
+    .attr("y", i * 20)      // stacked vertically
+    .attr("dy", "0.35em")
+    .attr("fill", color(origin))
+    .style("font-size", "12px")
+    .text(origin);
+});
+
 
   // Make axis text and lines black
   svg.selectAll(".axis path, .axis line, .axis text")
