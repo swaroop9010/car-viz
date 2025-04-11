@@ -3,14 +3,13 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: url('background.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: white;
-  text-align: center;
+  color: #fff;
 }
 
 .hero {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 40px 20px;
-  margin-bottom: 20px;
+  text-align: center;
+  padding: 60px 20px 30px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 h1 {
@@ -18,33 +17,32 @@ h1 {
   margin-bottom: 20px;
 }
 
-.btn-group {
+.button-group {
   margin-top: 20px;
 }
 
-.btn-group button {
-  background-color: #2980b9;
-  color: white;
-  padding: 12px 24px;
-  margin: 5px;
+button {
+  background-color: #ffffffcc;
   border: none;
   border-radius: 8px;
+  padding: 12px 20px;
+  margin: 0 10px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: 0.3s ease;
 }
 
-.btn-group button:hover {
-  background-color: #1c5980;
+button:hover {
+  background-color: #ffcc00;
 }
 
 .chart-section {
   margin: 40px auto;
   padding: 20px;
-  max-width: 900px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255,255,255,0.95);
   border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  max-width: 900px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .hidden {
