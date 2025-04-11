@@ -1,4 +1,3 @@
-
 d3.csv("a1-cars.csv").then(data => {
   let mpgByMaker = d3.rollups(data, v => d3.mean(v, d => +d.MPG), d => d.Manufacturer)
                      .filter(([key, val]) => !isNaN(val))
@@ -18,6 +17,7 @@ d3.csv("a1-cars.csv").then(data => {
   const x = d3.scaleBand().domain(mpgByMaker.map(d => d[0])).range([0, width]).padding(0.2);
   const y = d3.scaleLinear().domain([0, d3.max(mpgByMaker, d => d[1])]).range([height, 0]);
 
+  // X Axis
   svg.append("g")
      .attr("transform", `translate(0,${height})`)
      .attr("class", "axis")
@@ -26,10 +26,12 @@ d3.csv("a1-cars.csv").then(data => {
      .attr("transform", "rotate(-45)")
      .style("text-anchor", "end");
 
+  // Y Axis
   svg.append("g")
      .attr("class", "axis")
      .call(d3.axisLeft(y));
 
+  // Bars
   svg.selectAll("rect")
     .data(mpgByMaker)
     .enter().append("rect")
@@ -38,4 +40,9 @@ d3.csv("a1-cars.csv").then(data => {
     .attr("width", x.bandwidth())
     .attr("height", d => height - y(d[1]))
     .attr("fill", "#ff7f0e");
+
+  // Set axis color to black
+  svg.selectAll(".axis path, .axis line, .axis text")
+     .attr("stroke", "black")
+     .attr("fill", "black");
 });
