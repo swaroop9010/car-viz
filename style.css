@@ -1,58 +1,61 @@
 body {
+  font-family: "Segoe UI", sans-serif;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url('background.jpg') no-repeat center center fixed;
+  padding: 0;
+  background-image: url("bg.jpg"); /* Replace with your own image */
   background-size: cover;
+  background-attachment: fixed;
   color: #fff;
 }
 
-.hero {
-  text-align: center;
-  padding: 60px 20px 30px;
+.container {
   background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  max-width: 1000px;
+  margin: auto;
+  border-radius: 12px;
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #f0f0f0;
 }
 
 .button-group {
-  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-button {
-  background-color: #ffffffcc;
+.button-group button {
+  background-color: #007bff;
   border: none;
-  border-radius: 8px;
-  padding: 12px 20px;
+  color: white;
+  padding: 10px 20px;
   margin: 0 10px;
-  font-size: 1rem;
+  font-size: 16px;
   cursor: pointer;
-  transition: 0.3s ease;
+  border-radius: 8px;
 }
 
-button:hover {
-  background-color: #ffcc00;
+.button-group button:hover {
+  background-color: #0056b3;
 }
 
 .chart-section {
-  margin: 40px auto;
-  padding: 20px;
-  background: rgba(255,255,255,0.95);
+  display: none;
+  background: white;
   border-radius: 16px;
-  max-width: 900px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+}
+
+.chart-section svg {
+  display: block;
+  margin: auto;
 }
 
 .hidden {
   display: none;
-}
-
-svg text,
-.axis path,
-.axis line {
-  stroke: black !important;
-  fill: black;
-  color: black;
 }
