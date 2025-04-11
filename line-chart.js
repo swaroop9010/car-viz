@@ -1,4 +1,3 @@
-
 d3.csv("a1-cars.csv").then(data => {
   data.forEach(d => {
     d["Model Year"] = +d["Model Year"];
@@ -21,20 +20,24 @@ d3.csv("a1-cars.csv").then(data => {
   const y = d3.scaleLinear().domain([0, d3.max(data, d => d.MPG)]).range([height, 0]);
   const color = d3.scaleOrdinal(d3.schemeSet2);
 
+  // X Axis
   svg.append("g")
      .attr("transform", `translate(0,${height})`)
      .attr("class", "axis")
      .call(d3.axisBottom(x).tickFormat(d => 1900 + d));
 
+  // Y Axis
   svg.append("g")
      .attr("class", "axis")
      .call(d3.axisLeft(y));
 
+  // Line generator
   const line = d3.line()
     .defined(d => !isNaN(d.MPG))
     .x(d => x(d["Model Year"]))
     .y(d => y(d.MPG));
 
+  // Plot lines and labels
   nested.forEach(([origin, values]) => {
     svg.append("path")
       .datum(values)
@@ -49,4 +52,9 @@ d3.csv("a1-cars.csv").then(data => {
       .attr("fill", color(origin))
       .text(origin);
   });
+
+  // Make axis text and lines black
+  svg.selectAll(".axis path, .axis line, .axis text")
+     .attr("stroke", "black")
+     .attr("fill", "black");
 });
